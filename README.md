@@ -1,32 +1,32 @@
-# unofficial-ysap-fmt
+# unofficial ysap linter
 
 Bash linter and formatter enforcing the [ysap.sh style guide](https://style.ysap.sh).
 
-WARNING: experimental, needs testing, issues welcome
+WARNING:  **WIP** experimental, needs testing, issues welcome
 
 ## Installation
 
 ```bash
-go install github.com/emileFRT/github.com/emileFRT/unofficial-ysap-fmt/cmd/unofficial_ysap_fmt@latest
+go install github.com/emileFRT/github.com/emileFRT/uysaplint/cmd/ysaplint@latest
 ```
 
 ## Usage
 
 ```bash
 # Format to stdout
-unofficial-ysap-fmt script.sh
+ysaplint script.sh
 
 # Format in-place
-unofficial-ysap-fmt -i script.sh
+ysaplint -i script.sh
 
 # Lint only
-unofficial-ysap-fmt lint script.sh
+ysaplint lint script.sh
 
 # With shfmt integration (recommended)
-unofficial-ysap-fmt -s script.sh
+ysaplint -s script.sh
 
 # Disable specific rules
-unofficial-ysap-fmt -d eval-usage,useless-cat script.sh
+ysaplint -d eval-usage,useless-cat script.sh
 ```
 
 ## Options

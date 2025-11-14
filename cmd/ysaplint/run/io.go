@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/emileFRT/unofficial-ysap-fmt/linter"
+	"github.com/emileFRT/ysaplint/linter"
 )
 
 func readInput(args []string) (string, string, error) {

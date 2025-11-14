@@ -3,15 +3,11 @@ package rules
 import (
 	"maps"
 	"slices"
-	"github.com/emileFRT/unofficial-ysap-fmt/linter"
 
-	"mvdan.cc/sh/v3/syntax"
+	"github.com/emileFRT/ysaplint/linter"
 )
 
-type Checker func(*linter.Linter, syntax.Node)
-type Fixer func(*linter.Linter, syntax.Node) bool
-
-var Checkers = map[string]Checker{
+var Checkers = map[string]linter.Checker{
 	RuleShebang:     CheckShebang,
 	RuleSemicolon:   CheckSemicolon,
 	RuleFunctionKw:  CheckFunctionKw,
@@ -30,7 +26,7 @@ var Checkers = map[string]Checker{
 	RuleDeclaration: CheckDeclaration,
 }
 
-var Fixers = map[string]Fixer{
+var Fixers = map[string]linter.Fixer{
 	RuleShebang:     FixShebang,
 	RuleSemicolon:   FixSemicolon,
 	RuleFunctionKw:  FixFunctionKw,
