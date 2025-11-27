@@ -2,7 +2,8 @@
 
 Bash linter and formatter enforcing the [ysap.sh style guide](https://style.ysap.sh).
 
-WARNING:  **WIP** experimental, needs testing, issues welcome
+WARNING:  **WIP** needs more testing, issues/improvement proposal are very welcome.
+
 
 ## Installation
 
@@ -13,17 +14,20 @@ go install github.com/emileFRT/uysaplint/cmd/ysaplint@latest
 ## Usage
 
 ```bash
-# Format to stdout
-ysaplint fmt script.sh
+# Format to stdout, inplace is an option
+ysaplint fmt < script.sh
 
 # Lint only
 ysaplint script.sh
+
+#see more options (completion generation)
+ysaplint help
 
 ```
 
 ## Rules
 
-Those are my extraction/understanding of the [ysap.sh style guide](https://style.ysap.sh).
+This is my named bullet point extraction/understanding of the [ysap.sh style guide](https://style.ysap.sh) (not stable). 
 
 | Rule | Auto-Fix | Severity | Description |
 |------|----------|----------|-------------|
@@ -44,9 +48,9 @@ Those are my extraction/understanding of the [ysap.sh style guide](https://style
 | `var-naming` | ❌ | warning | Use lowercase variable names |
 | `declaration` | ✅ | warning | Don't use `readonly` or `declare -i` |
 
-## Why so few rules support formatting
+## Why so few rules support automated formatting
 
-Short answer: either it might change the script behaviour (ex: removing `set -e`, substituing `[` to `[[`), or it is somewhat hard t implement and i can't be bothered for now (issues discussion welcome if needed/implementation proposal)
+Short answer: either it might change the script behaviour (ex: removing `set -e`, substituing `[` to `[[`), or it is somewhat hard to implement (bash allow a lot a things yo know...) and i can't be bothered for now (issues and usecases welcome, implementation proposal too)
 
 ## Why in Go (and not Bash or <insert lang>...)
 
@@ -55,7 +59,12 @@ Leveraging `mvdan.cc/sh/v3` AST walk is straight forward, clean and almost perfe
 ## Caveats
 
 Same as [shfmt's](https://github.com/mvdan/sh/tree/master?tab=readme-ov-file#caveats) .
-Please report any other in an Issue, it will be appreciated.
+Please report any other in an github issue, it will be appreciated.
+
+## Why this project ?
+
+My bash scripts tend to lack styling coherence so i think i will actually use it.
+It is still a learning experience to have a bit of fun, aiming at an easily extensible formatter, so i can build other faster next time.
 
 ## License
 

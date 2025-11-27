@@ -9,7 +9,6 @@ import (
 )
 
 func CheckShebang(l linter.Linter) {
-	println("in shebang")
 	lines := strings.Split(l.GetContent(), "\n")
 	if len(lines) > 0 && strings.HasPrefix(lines[0], "#!") {
 		if !strings.Contains(lines[0], "#!/usr/bin/env bash") && !strings.Contains(lines[0], "#!/bin/bash") {
@@ -38,6 +37,6 @@ func FixShebang(l linter.Linter) {
 	if !modified {
 		return
 	}
-	l.SetContent(strings.Join(lines, "\n"))
 
+	l.SetContent(strings.Join(lines, "\n"))
 }
